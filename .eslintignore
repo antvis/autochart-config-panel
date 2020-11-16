@@ -1,0 +1,10 @@
+.DS_Store
+node_modules/
+lib/
+coverage/
+es/
+dist/
+temp/
+typings/
+docs/
+jest.config.js
