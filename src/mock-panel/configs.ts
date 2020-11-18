@@ -99,6 +99,13 @@ const radar = mock(
   12
 );
 
+const histogram = mock(
+  [
+    { name: 'value', type: 'number', min: 0, max: 100 },
+  ] as Field[],
+  60
+);
+
 const scatter = mock(
   [
     {
@@ -128,6 +135,25 @@ const bubble = mock(
   100
 );
 
+const heatmap = mock(
+  [
+    {
+      name: 'city',
+      values: ['上海', '成都', '杭州', '深圳', '香港', '北京', '重庆'],
+      type: 'enum',
+      distribution: 'cartesian',
+    },
+    {
+      name: 'type',
+      values: ['分类一', '分类二', '分类三', '分类四', '分类五', '分类六', '分类七', '分类八'],
+      type: 'enum',
+      distribution: 'cartesian',
+    },
+    { name: 'value', type: 'number', min: 0, max: 100 },
+  ] as Field[],
+  56
+);
+
 export const CONFIG_MAP = {
   MultiLine: {
     data: lines,
@@ -144,17 +170,9 @@ export const CONFIG_MAP = {
       xField: 'date',
       yField: 'value',
       seriesField: 'city',
+      isStack: true,
     },
-    type: 'StackArea',
-  },
-  PercentageStackedArea: {
-    data: lines,
-    configs: {
-      xField: 'date',
-      yField: 'value',
-      seriesField: 'city',
-    },
-    type: 'PercentageStackArea',
+    type: 'Area',
   },
   Line: {
     data: line,
@@ -177,8 +195,23 @@ export const CONFIG_MAP = {
     configs: {
       angleField: 'value',
       colorField: 'type',
+      innerRadius: 0.64,
+      statistic: {
+        title: {
+          offsetY: -18,
+          style: {
+            fontSize: 16,
+          }
+        },
+        content: {
+          offsetY: 8,
+          style: {
+            fontSize: 24,
+          },
+        },
+      }
     },
-    type: 'Ring',
+    type: 'Pie',
   },
   Area: {
     data: line,
@@ -201,27 +234,31 @@ export const CONFIG_MAP = {
     configs: {
       xField: 'city',
       yField: 'value',
-      groupField: 'gender',
+      seriesField: 'gender',
+      isGroup: true,
     },
-    type: 'GroupColumn',
+    type: 'Column',
   },
   StackedColumn: {
     data: bars,
     configs: {
       xField: 'city',
       yField: 'value',
-      stackField: 'gender',
+      seriesField: 'gender',
+      isStack: true,
     },
-    type: 'StackColumn',
+    type: 'Column',
   },
   PercentageStackedColumn: {
     data: barss,
     configs: {
       xField: 'city',
       yField: 'value',
-      stackField: 'type',
+      seriesField: 'type',
+      isStack: true,
+      isPercent: true,
     },
-    type: 'PercentageStackColumn',
+    type: 'Column',
   },
   Bar: {
     data: bar,
@@ -236,27 +273,31 @@ export const CONFIG_MAP = {
     configs: {
       xField: 'value',
       yField: 'city',
-      groupField: 'gender',
+      seriesField: 'gender',
+      isGroup: true,
     },
-    type: 'GroupBar',
+    type: 'Bar',
   },
   StackedBar: {
     data: bars,
     configs: {
       xField: 'value',
       yField: 'city',
-      groupField: 'gender',
+      seriesField: 'gender',
+      isStack: true,
     },
-    type: 'StackBar',
+    type: 'Bar',
   },
   PercentageStackedBar: {
     data: barss,
     configs: {
       xField: 'value',
       yField: 'city',
-      groupField: 'type',
+      seriesField: 'type',
+      isStack: true,
+      isPercent: true,
     },
-    type: 'PercentageStackBar',
+    type: 'Bar',
   },
   Scatter: {
     data: scatter,
@@ -264,6 +305,7 @@ export const CONFIG_MAP = {
       xField: 'value',
       yField: 'count',
       colorField: 'city',
+      shape: 'circle'
     },
     type: 'Scatter',
   },
@@ -274,16 +316,35 @@ export const CONFIG_MAP = {
       yField: 'count',
       sizeField: 'size',
       colorField: 'city',
+      size: [2, 16],
+      shape: 'circle'
     },
-    type: 'Bubble',
+    type: 'Scatter',
   },
   Radar: {
     data: radar,
     configs: {
-      angleField: 'type',
-      radiusField: 'value',
+      xField: 'type',
+      yField: 'value',
       seriesField: 'name',
     },
     type: 'Radar',
   },
+  Histogram: {
+    data: histogram,
+    configs: {
+      binField: 'value',
+      binWidth: 4,
+    },
+    type: 'Histogram',
+  },
+  Heatmap: {
+    data: heatmap,
+    configs: {
+      xField: 'type',
+      yField: 'city',
+      colorField: 'value',
+    },
+    type: 'Heatmap'
+  }
 };

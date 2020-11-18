@@ -1,4 +1,4 @@
-import { getSchemaByType, Lang } from '@alipay/g2plot-schemas';
+import { getSchemaByType, Lang } from '@antv/g2plot-schemas';
 import * as schemaUtil from 'schema-util';
 
 const SCHEMAS_CACHE = { 'zh-CN': {}, 'en-US': {} };

@@ -9,11 +9,10 @@
   },
   "author": "AFX",
   "dependencies": {
-    "@alipay/chartshaper": "^1.1.21-0",
-    "@alipay/g2plot-schemas": "^1.1.11",
+    "@antv/g2plot-schemas": "^1.1.21",
     "@antv/dw-generator": "^0.0.2-alpha.5",
     "@antv/dw-random": "^0.0.2-alpha.4",
-    "@antv/g2plot": "^0.11.5",
+    "@antv/g2plot": "^2.0.9",
     "@antv/thumbnails": "^0.2.0",
     "react": "^16.12.0",
     "react-copy-to-clipboard": "^5.0.2",
@@ -21,7 +20,6 @@
     "schema-util": "^3.4.6"
   },
   "devDependencies": {
-    "@alipay/site2render": "^1.49.3",
     "@antv/util": "^2.0.6",
     "@babel/cli": "^7.4.4",
     "@babel/core": "^7.4.5",

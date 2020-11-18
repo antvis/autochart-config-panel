@@ -10,7 +10,6 @@ import { parseSearch, uuid } from '../utils';
 import './index.less';
 
 const { id } = parseSearch<{ id: string }>();
-
 const fields: Field[] = [
   { type: 'date', start: '2019-01-01', end: '2019-01-10', step: '1d', format: 'yyyy/MM/dd', name: 'date' },
   { type: 'enum', values: ['上海', '伦敦'], distribution: 'cartesian', name: 'city' },
@@ -30,12 +29,13 @@ const CHART_NAME_MAP = {
   PercentageStackedColumn: '百分比堆叠柱状图',
   Area: '面积图',
   StackedArea: '堆叠面积图',
-  PercentageStackedArea: '百分比堆叠面积图',
   Pie: '饼图',
   Donut: '环图',
   Radar: '雷达图',
   Scatter: '散点图',
   Bubble: '气泡图',
+  Histogram: '直方图',
+  Heatmap: '热力图',
 };
 
 class App extends React.Component {
@@ -173,11 +173,12 @@ class App extends React.Component {
         {tab === 'chart' && (
           <>
             <div className="chart-container">
-              {Object.entries(thumbnails).map(([key, value]) => {
+              {Object.entries(CHART_NAME_MAP).map(([key, value]) => {
+                const thumbnail = thumbnails[key];
                 return (
                   <div key={key} className={`chart-item${type === key ? ' active' : ''}`}>
                     <div className="chart">
-                      <img onClick={this.onChartChange.bind(this, key)} src={value.url} alt={key} />
+                      <img onClick={this.onChartChange.bind(this, key)} src={thumbnail?.url} alt={key} />
                     </div>
                     <div>{CHART_NAME_MAP[key]}</div>
                   </div>

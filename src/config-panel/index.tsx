@@ -3,11 +3,11 @@ import * as ReactDOM from 'react-dom';
 import * as G2Plot from '@antv/g2plot';
 import * as _ from '@antv/util';
 import CopyToClipboard from 'react-copy-to-clipboard';
-import { Editor } from '@alipay/g2plot-schemas';
+import { Editor, defaultConfigs } from '@antv/g2plot-schemas';
 import { Button, message } from 'antd';
 import getSchema from './get-schema';
 import { isEqual } from '@antv/util';
-import '@alipay/g2plot-schemas/lib/editor/index.less';
+import '@antv/g2plot-schemas/lib/editor/index.less';
 import './index.less';
 import trans from '../local';
 import { parseSearch } from '../utils';
@@ -19,7 +19,7 @@ const language: 'zh-CN' | 'en-US' = window.navigator.language === 'zh-CN' ? 'zh-
 const t = trans.bind(null, language);
 
 function getOption(type: string) {
-  const options = G2Plot[type].getDefaultOptions();
+  const options = defaultConfigs[type];
   delete options.heigth;
   delete options.width;
   return _.deepMix({}, options);
@@ -107,7 +107,7 @@ class App extends React.Component<{}, State> {
   render() {
     const { type, configs, language } = this.state;
     const schema = getSchema(type, language);
-    const { data, ...config } = shake(configs, G2Plot[type].getDefaultOptions());
+    const { data, ...config } = shake(configs, defaultConfigs[type]);
     return (
       <>
         <Editor key={type} data={configs} schema={schema} onChange={this.onChange.bind(this)} />
