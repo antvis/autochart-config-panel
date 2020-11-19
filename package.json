@@ -13,7 +13,7 @@
     "@antv/dw-generator": "^0.0.2-alpha.5",
     "@antv/dw-random": "^0.0.2-alpha.4",
     "@antv/g2plot": "^2.0.9",
-    "@antv/thumbnails": "^0.2.0",
+    "@antv/thumbnails": "^0.3.0",
     "react": "^16.12.0",
     "react-copy-to-clipboard": "^5.0.2",
     "react-dom": "^16.12.0",

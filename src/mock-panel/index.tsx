@@ -17,25 +17,24 @@ const fields: Field[] = [
 ];
 
 const CHART_NAME_MAP = {
-  Line: '单折线图',
-  MultiLine: '多折线图',
-  Bar: '条形图',
-  GroupedBar: '分组条形图',
-  StackedBar: '堆叠条形图',
-  PercentageStackedBar: '百分比堆叠条形图',
-  Column: '柱状图',
-  GroupedColumn: '分组柱状图',
-  StackedColumn: '堆叠柱状图',
-  PercentageStackedColumn: '百分比堆叠柱状图',
-  Area: '面积图',
-  StackedArea: '堆叠面积图',
-  Pie: '饼图',
-  Donut: '环图',
-  Radar: '雷达图',
-  Scatter: '散点图',
-  Bubble: '气泡图',
-  Histogram: '直方图',
-  Heatmap: '热力图',
+  line_chart: '折线图',
+  area_chart: '面积图',
+  bar_chart: '条形图',
+  grouped_bar_chart: '分组条形图',
+  stacked_bar_chart: '堆叠条形图',
+  percent_stacked_bar_chart: '百分比堆叠条形图',
+  column_chart: '柱状图',
+  grouped_column_chart: '分组柱状图',
+  stacked_column_chart: '堆叠柱状图',
+  percent_stacked_column_chart: '百分比堆叠柱状图',
+  stacked_area_chart: '堆叠面积图',
+  pie_chart: '饼图',
+  donut_chart: '环图',
+  radar_chart: '雷达图',
+  scatter_plot: '散点图',
+  bubble_chart: '气泡图',
+  histogram: '直方图',
+  heatmap: '热力图',
 };
 
 class App extends React.Component {
@@ -175,6 +174,7 @@ class App extends React.Component {
             <div className="chart-container">
               {Object.entries(CHART_NAME_MAP).map(([key, value]) => {
                 const thumbnail = thumbnails[key];
+                console.log(key, value);
                 return (
                   <div key={key} className={`chart-item${type === key ? ' active' : ''}`}>
                     <div className="chart">

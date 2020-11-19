@@ -155,7 +155,7 @@ const heatmap = mock(
 );
 
 export const CONFIG_MAP = {
-  MultiLine: {
+  line_chart: {
     data: lines,
     configs: {
       xField: 'date',
@@ -164,7 +164,7 @@ export const CONFIG_MAP = {
     },
     type: 'Line',
   },
-  StackedArea: {
+  stacked_area_chart: {
     data: lines,
     configs: {
       xField: 'date',
@@ -174,15 +174,7 @@ export const CONFIG_MAP = {
     },
     type: 'Area',
   },
-  Line: {
-    data: line,
-    configs: {
-      xField: 'date',
-      yField: 'value',
-    },
-    type: 'Line',
-  },
-  Pie: {
+  pie_chart: {
     data: pie,
     configs: {
       angleField: 'value',
@@ -190,7 +182,7 @@ export const CONFIG_MAP = {
     },
     type: 'Pie',
   },
-  Donut: {
+  donut_chart: {
     data: pie,
     configs: {
       angleField: 'value',
@@ -213,7 +205,7 @@ export const CONFIG_MAP = {
     },
     type: 'Pie',
   },
-  Area: {
+  area_chart: {
     data: line,
     configs: {
       xField: 'date',
@@ -221,7 +213,7 @@ export const CONFIG_MAP = {
     },
     type: 'Area',
   },
-  Column: {
+  column_chart: {
     data: bar,
     configs: {
       xField: 'city',
@@ -229,7 +221,7 @@ export const CONFIG_MAP = {
     },
     type: 'Column',
   },
-  GroupedColumn: {
+  grouped_column_chart: {
     data: bars,
     configs: {
       xField: 'city',
@@ -239,7 +231,7 @@ export const CONFIG_MAP = {
     },
     type: 'Column',
   },
-  StackedColumn: {
+  stacked_column_chart: {
     data: bars,
     configs: {
       xField: 'city',
@@ -249,7 +241,7 @@ export const CONFIG_MAP = {
     },
     type: 'Column',
   },
-  PercentageStackedColumn: {
+  percent_stacked_column_chart: {
     data: barss,
     configs: {
       xField: 'city',
@@ -260,7 +252,7 @@ export const CONFIG_MAP = {
     },
     type: 'Column',
   },
-  Bar: {
+  bar_chart: {
     data: bar,
     configs: {
       xField: 'value',
@@ -268,7 +260,7 @@ export const CONFIG_MAP = {
     },
     type: 'Bar',
   },
-  GroupedBar: {
+  grouped_bar_chart: {
     data: bars,
     configs: {
       xField: 'value',
@@ -278,7 +270,7 @@ export const CONFIG_MAP = {
     },
     type: 'Bar',
   },
-  StackedBar: {
+  stacked_bar_chart: {
     data: bars,
     configs: {
       xField: 'value',
@@ -288,7 +280,7 @@ export const CONFIG_MAP = {
     },
     type: 'Bar',
   },
-  PercentageStackedBar: {
+  percent_stacked_bar_chart: {
     data: barss,
     configs: {
       xField: 'value',
@@ -299,7 +291,7 @@ export const CONFIG_MAP = {
     },
     type: 'Bar',
   },
-  Scatter: {
+  scatter_plot: {
     data: scatter,
     configs: {
       xField: 'value',
@@ -309,7 +301,7 @@ export const CONFIG_MAP = {
     },
     type: 'Scatter',
   },
-  Bubble: {
+  bubble_chart: {
     data: bubble,
     configs: {
       xField: 'value',
@@ -321,7 +313,7 @@ export const CONFIG_MAP = {
     },
     type: 'Scatter',
   },
-  Radar: {
+  radar_chart: {
     data: radar,
     configs: {
       xField: 'type',
@@ -330,7 +322,7 @@ export const CONFIG_MAP = {
     },
     type: 'Radar',
   },
-  Histogram: {
+  histogram: {
     data: histogram,
     configs: {
       binField: 'value',
@@ -338,7 +330,7 @@ export const CONFIG_MAP = {
     },
     type: 'Histogram',
   },
-  Heatmap: {
+  heatmap: {
     data: heatmap,
     configs: {
       xField: 'type',
